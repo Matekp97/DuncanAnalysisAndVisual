@@ -142,7 +142,7 @@ scatterplotMatrix ( ~ prestige + education + income, id=list (n=3), data=Duncan)
 ```
 
 
-![png](output_10_0.png)
+![png](images/output_10_0.png)
 
 
 Like prestige, education appears to have a bimodal distribution. The distribution of income, in contrast, is perhaps best characterized as irregular. The pairwise relationships among the variables seem reasonably linear, which means that as we move from left to right across the plot, the average y values of the points more or less trace out a straight line. The scatter around the regression lines appears to have reasonably constant vertical variability and to be approximately
