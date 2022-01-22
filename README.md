@@ -186,7 +186,7 @@ Calculate Studentized residuals for the model and plot the distribution
 residual<-rstudent(modello)
 densityPlot(rstudent(modello))
 ```
-![png](output_17_0.png)
+![png](images/output_17_0.png)
 We can see that the errors in the regression are nearly normally distributed with zero means and costant variance thanks to the fact theat the graph resemble a t-distribution.
 The qqPlot () function extracts the Studentized residuals and plots them against the quantiles of the appropriate t-distribution. If the Studentized residuals are t-distributed, then the plotted points should lie close to a straight line.
 ```R
@@ -197,7 +197,7 @@ qqPlot(modello, id=list(n=3))
 	<li>9</li>
 	<li>17</li>
 </ol>
-![png](output_20_1.png)
+![png](images/output_20_1.png)
 In this case, the residuals pull away slightly from the comparison line at both ends, suggesting that the residual distribution is a bit heavy-tailed. This effect is more pronounced at the upper end of the distribution, indicating a slight positive skew. The residuals stay nearly within the boundaries of the envelope at both ends of the distribution, with the exception of the occupation minister.
 To analise in a better way we use outlierTest(), that is atest based on the largest (absolute) Studentized residual, and it suggests that the residual for ministers is not terribly unusual, with a Bonferroni-corrected p-value of 0.14:
 ```R
@@ -211,12 +211,12 @@ We proceed to check for high-leverage and influential cases by using the influen
 ```R
 influenceIndexPlot (modello, vars=c ("Cook", "hat"), id=list(n=3))
 ```
-![png](output_24_0.png)
+![png](images/output_24_0.png)
 Because the cases in a regression can be jointly as well as individually influential, we also examine added-variable plots for the predictors, using the avPlots () function in the car package
 ```R
 avPlots (modello, id=list (cex=0.75, n=3, method="mahal"))
 ```
-![png](output_26_0.png)
+![png](images/output_26_0.png)
 method= "mahal" indicates that unusualness is quantified by Mahalanobis distance from the center of the point-cloud.
 Mahalanobis distances from the center of the data take account of the standard deviations of the variables and the correlation between them. 
 Each added-variable plot displays the conditional, rather than the marginal, relationship between the response and one of the predictors. Points at the extreme left or right of the plot correspond to cases that have high leverage on the corresponding coefficient and consequently are potentially influential. The graphs confirms and strengthens our previous observations: we should be concerned about the occupations minister and conductor, which work jointly to increase the education coefficient and decrease the income coefficient.
@@ -225,7 +225,7 @@ We next use the crPlots () function, also in the car package, to generate compon
 ```R
 crPlots(modello)
 ```
-![png](output_29_0.png)
+![png](images/output_29_0.png)
 Each plot includes a least-squares line, representing the regression plane viewed edge-on in the direction of the corresponding predictor, and a loess nonparametric-regression smooth.51 The purpose of these plots is to detect nonlinearity, evidence of which is slight here.
 Component-plus-residual plots for education and income in Duncan’s occupational-prestige regression. The solid line in each panel shows a loess nonparametric-regression smooth; the broken line in each panel is the least-squares line.
 Using the ncvTest () function, we compute score tests for nonconstant variance, checking for an association of residual variability with the fitted values and with any linear combination of the predictors:
@@ -341,7 +341,7 @@ Calculate Studentized residuals for the model and plot the distribution
 residual<-rstudent(modello3)
 densityPlot(rstudent(modello3))
 ```
-![png](output_43_0.png)
+![png](images/output_43_0.png)
 We can easily see that in this case the graph is nomore centered in zero, and the maximum value is negative, moreover the distribution does not resemble anymore a t-student, mostly on the left part of the curve.
 ```R
 par(mfrow=c(1,2))
@@ -358,6 +358,6 @@ qqPlot(modello, id=list(n=3))
 	<li>9</li>
 	<li>17</li>
 </ol>
-![png](output_45_2.png)
+![png](images/output_45_2.png)
 ```R
 ```
