@@ -17,7 +17,7 @@ Visualize the first 6 rows of the data just uploaded
 
 ```R
 data(Duncan)
-tail(Duncan)
+head(Duncan)
 ```
 
 
