@@ -300,6 +300,8 @@ qqPlot(modello, id=list(n=3))
 	<li>9</li>
 	<li>17</li>
 </ol>
+
 ![png](images/output_45_2.png)
+
 ```R
 ```
